@@ -395,14 +395,12 @@ class Ui_SamtatReport(object):
         item.setText(_translate("SamtatReport", "DEV_LATITUDE"))
         item = self.table_output.horizontalHeaderItem(9)
         item.setText(_translate("SamtatReport", "DEV_LONGITUDE"))
-
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    SamtatReport = QtWidgets.QMainWindow()
-    ui = Ui_SamtatReport()
-    ui.setupUi(SamtatReport)
-    SamtatReport.show()
-    sys.exit(app.exec_())
+ 
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     SamtatReport = QtWidgets.QMainWindow()
+#     ui = Ui_SamtatReport()
+#     ui.setupUi(SamtatReport)
+#     SamtatReport.show()
+#     sys.exit(app.exec_())
