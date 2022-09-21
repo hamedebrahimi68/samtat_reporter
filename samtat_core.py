@@ -35,38 +35,39 @@ class ui_events(QtWidgets.QMainWindow):
             pass
 
 
-def oracle_query(self,start_time,end_time,ostan,control_station,class_name,takhalof,pelak_p1,pelak_p2,pelak_p3,pelak_combo):
-    try:
-        import cx_Oracle
-        connection = cx_Oracle.connect(user="root", password= 'userpwd', dsn="dbhost.example.com/orclpdb1")
-        # Obtain a cursor
-        cursor = connection.cursor()
-        # Execute the query
-        sql = """SELECT *
-         FROM taradod
-         WHERE start_time BETWEEN :start AND :end """
+    def oracle_query(self,start_time,end_time,ostan,control_station,class_name,takhalof,pelak_p1,pelak_p2,pelak_p3,pelak_combo):
+        try:
+            import cx_Oracle
+            connection = cx_Oracle.connect(user="root", password= 'userpwd', dsn="dbhost.example.com/orclpdb1")
+            # Obtain a cursor
+            cursor = connection.cursor()
+            # Execute the query
+            sql = """SELECT *
+            FROM taradod
+            WHERE start_time BETWEEN :start AND :end """
 
-        cursor.execute(sql, start=start_time, end=end_time)
-        # Loop over the result and set result tabel
-        for row in cursor:
-            self.ui.table_output.setItem(row, column, newItem)
+            cursor.execute(sql, start=start_time, end=end_time)
+            # Loop over the result and set result tabel
+            for row in cursor:
+                self.ui.table_output.setItem(row, column, newItem)
+            
+        except:
+            pass
         
-    except:
-        self.ui.
-def mongodb_query(self,taradod_id):
-    import pymongo
+    def mongodb_query(self,taradod_id):
+        import pymongo
 
-    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-    mydb = myclient["taradod_database"]
+        myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+        mydb = myclient["taradod_database"]
 
-    mycol = mydb["tasvir_table"]
+        mycol = mydb["tasvir_table"]
 
-    myquery = { "taradod_id": taradod_id }
+        myquery = { "taradod_id": taradod_id }
 
-    mydoc = mycol.find(myquery)
+        mydoc = mycol.find(myquery)
 
-    for x in mydoc:
-        print(x)
+        for x in mydoc:
+            print(x)
 
 
 
