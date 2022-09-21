@@ -10,7 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_SamtatReport(object):
     def setupUi(self, SamtatReport):
         SamtatReport.setObjectName("SamtatReport")
