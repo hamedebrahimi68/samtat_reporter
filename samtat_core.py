@@ -2,7 +2,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from samtat_ui import Ui_SamtatReport
 import sys
 
-
 class ui_events(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
@@ -34,7 +33,6 @@ class ui_events(QtWidgets.QMainWindow):
         except:
             pass
 
-
     def oracle_query(self,start_time,end_time,ostan,control_station,class_name,takhalof,pelak_p1,pelak_p2,pelak_p3,pelak_combo):
         try:
             import cx_Oracle
@@ -45,31 +43,22 @@ class ui_events(QtWidgets.QMainWindow):
             sql = """SELECT *
             FROM taradod
             WHERE start_time BETWEEN :start AND :end """
-
             cursor.execute(sql, start=start_time, end=end_time)
             # Loop over the result and set result tabel
             for row in cursor:
-                self.ui.table_output.setItem(row, column, newItem)
-            
+                self.ui.table_output.setItem(row, column, newItem)            
         except:
             pass
         
     def mongodb_query(self,taradod_id):
         import pymongo
-
         myclient = pymongo.MongoClient("mongodb://localhost:27017/")
         mydb = myclient["taradod_database"]
-
         mycol = mydb["tasvir_table"]
-
         myquery = { "taradod_id": taradod_id }
-
         mydoc = mycol.find(myquery)
-
         for x in mydoc:
             print(x)
-
-
 
 if __name__ == "__main__":
     import sys
